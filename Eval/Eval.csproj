@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    In this project, the intention of the "build" command is actually "eval the
+    code in the running app".
+
+    A problematic case is that, if the source files are unchanged, then the
+    "build" command will be a no-op. No code will be evaled in the app which
+    violates the developer's expectation. This is because both the "Build"
+    and "Eval" targets will be skipped.
+
+    "TouchSource", a pre-build target, is the workaround. It touches the source
+    file, making it look dirty, and consequently forcing the "Build" and "Eval"
+    targets to run.
+  -->
+  <Target Name="TouchSource" BeforeTargets="Build">
+    <Exec Command="powershell (Get-Item $(ProjectDir)EvalProgram.cs).LastWriteTime = Get-Date" />
+  </Target>
+  <Target Name="Eval" AfterTargets="Build">
+    <Exec Command="powershell.exe -ExecutionPolicy Bypass -File &quot;$(SolutionDir)debug-tools\repl\eval.ps1&quot; -dllPath &quot;$(TargetPath)&quot;" />
+  </Target>
+  <ItemGroup>
+    <Reference Include="MyApp">
+      <HintPath>..\MyApp\bin\$(Configuration)\net7.0\MyApp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

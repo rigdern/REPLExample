@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp", "MyApp\MyApp.csproj", "{ABD0B3F3-59B4-47CB-B78A-75B986AD6EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp", "MyApp\MyApp.csproj", "{ABD0B3F3-59B4-47CB-B78A-75B986AD6EDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eval", "Eval\Eval.csproj", "{F70D76E0-E4A6-4BDF-9A28-9A194EB9F80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{ABD0B3F3-59B4-47CB-B78A-75B986AD6EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABD0B3F3-59B4-47CB-B78A-75B986AD6EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABD0B3F3-59B4-47CB-B78A-75B986AD6EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70D76E0-E4A6-4BDF-9A28-9A194EB9F80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70D76E0-E4A6-4BDF-9A28-9A194EB9F80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
